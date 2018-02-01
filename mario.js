@@ -18,12 +18,32 @@ function printPyramid(height) {
 
     // TODO
     // print that pyramid!
+    for(var i = 0; i < height; i++)
+    {
+        var line = "";
+        for(var j = 0; j < height + 2; j++)
+        {
+            if(j >= height - i)
+            {
+                line += "#";
+            }
+            else
+            {
+                line += " ";
+            }
+        }
+        console.log(line);
+    }
+}
     
-    for(var i=0; i<height; i++){
+   /* for(var i=0; i<height; i++){
         var row = '##'
         for(var j=0; j<i; j++){
             row +='#'
-        }
+        } 
+            console.log(row.padStart(height+1, ''))
+    }
+}*/
         /* how to pad a string with another string to a certain length.
 
 String.prototype.padStart()
@@ -41,6 +61,4 @@ as is without padding.
 The padString is an optional argument which is used to pad the string. The default value for this parameter is ‘ ‘. If the padString is greater
 than padLength, the padString will be truncated and only the left-most part will be padded.
 */
-        console.log(row.padStart(height+1, ''))
-    }
-}
+    
