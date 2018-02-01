@@ -57,15 +57,47 @@ formElem.onsubmit = function(event) {
 
 
     // TODO 2
+   
     // draw the pyramid with the given height
     drawPyramid(height);
+    
 }
+
+/**
+ * displayError
+ *
+ * Displays an error message on the text input, and colors it red
+ */
+function displayError(message) {
+    heightElem.className = "invalid-field";
+    document.querySelector(".error-message").innerHTML = message;
+}
+
+
+
+/*
+ * clearError
+ *
+ * Undisplays the error message and removes the red CSS style
+ */
+function clearError(message) {
+    heightElem.className = "";
+    document.querySelector(".error-message").innerHTML = "";
+}
+
 
 
 // TODO 1
 // hook up the button's click event to our determineHeightAndThenDrawPyramid function
+button = document.getElementById("draw-button");
+button.onclick = function() {
 
+// figure out the height the user typed
+heightStr = document.getElementById("height").value
 
+// convert the string to an int
+height = parseInt(heightStr);
+}
 
 /**
  * drawPyramid
@@ -76,7 +108,7 @@ formElem.onsubmit = function(event) {
 
      // TODO 4
      // before drawing, clear the old content
-
+     document.getElementById("pyramid").innerHTML = "";
 
      // for each row....
      for (var row = 0; row < height; row++) {
@@ -99,8 +131,8 @@ formElem.onsubmit = function(event) {
 
         // create a <p> element with the text inside
         rowElem = document.createElement("p");
-        rowElem.appendChild(textElem);
-
+        //rowElem.appendChild(textElem);
+        rowElem.innerHTML = rowStr;
         // insert the paragraph as a child of the container <div>
         document.getElementById("pyramid").appendChild(rowElem);
     }
