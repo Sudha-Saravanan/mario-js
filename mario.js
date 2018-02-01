@@ -11,6 +11,7 @@ function drawPyramid(height) {
 
     // TODO 2
     // delete the "under construction" element, ie the <div id="notice">
+    document.getElementById("pyramid").innerHTML = "";
 
 
     // for each row....
@@ -23,18 +24,21 @@ function drawPyramid(height) {
         // build up a string for this row
         var rowStr = "";
         for (var i = 0; i < numSpaces; i++) {
-            rowStr += "."; // QUIZ: what happens if we use a space (" ") instead of a period?
+            var spaceChar = "&nbsp";
+            rowStr += spaceChar; // QUIZ: what happens if we use a space (" ") instead of a period? This is the HTML encoding for a space ""
         }
         for (var i = 0; i < numBricks; i++) {
             rowStr += "#";
         }
 
-        // you can delete this now
-        console.log(rowStr)
+        
 
         // TODO 1
         // create an element whose inner text is rowStr,
         // and insert it as a child of the container <div id="pyramid">
-
+        // make a <p> element for this row, and insert it into the #pyramid container
+        rowElem = document.createElement("p");
+        rowElem.innerHTML = rowStr;
+        document.getElementById("pyramid").appendChild(rowElem);
     }
 }
