@@ -49,7 +49,7 @@ function determineHeightAndThenDrawPyramid() {
          // build up a string for this row
          var rowStr = "";
          for (var i = 0; i < numSpaces; i++) {
-             rowStr += ".";
+             rowStr += " ";
          }
          for (var i = 0; i < numBricks; i++) {
              rowStr += "#";
