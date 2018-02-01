@@ -18,7 +18,7 @@ function printPyramid(height) {
 
     // TODO
     // print that pyramid!
-    console.log(height)
+    
     for(var i=0; i<height; i++){
         var row = '##'
         for(var j=0; j<i; j++){
@@ -43,3 +43,4 @@ than padLength, the padString will be truncated and only the left-most part will
 */
         console.log(row.padStart(height+1, ''))
     }
+}
