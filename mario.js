@@ -11,22 +11,23 @@ function determineHeightAndThenDrawPyramid() {
     console.log("someone invoked the determineHeightAndThenDrawPyramid function!");
 
     // TODO 3
-    var heightElem = document.getElementById("height");
-    var formElem = document.getElementById("draw-form");
+   //var heightElem = document.getElementById("height");
+   
+   /*var formElem = document.getElementById("draw-button");
 
-// set a handler function for the form's submission event
-formElem.onsubmit = function(event) {
-
-    // QUIZ
-    // what happens if we don't do this?
-    event.preventDefault();
+    // set a handler function for the form's submission event
+    formElem.onsubmit = function(event) {
 
     // QUIZ
     // what happens if we don't do this?
-    clearError();
+    //event.preventDefault();
+
+    // QUIZ
+    // what happens if we don't do this?
+    //clearError();
 
     // figure out the height the user typed
-    heightStr = heightElem.value;
+    //heightStr = heightElem.value;
 
     // if they didn't type anything at all, give a different error message,
     // something like "Please provide a height"
@@ -34,14 +35,15 @@ formElem.onsubmit = function(event) {
     {
         displayError("You didn't type anything. Please enter a height.");
         return;
-    }
+    }*/
     // figure out the height the user typed (replace the "5" below)
-    heightStr = "5";
+    var heightStr = document.getElementById("height").value;
+   
 
     // here we convert the string to an int
     height = parseInt(heightStr);
 
-    // if the height is not-a-number, yell at them and exit early
+   /* // if the height is not-a-number, yell at them and exit early
     // negative numbers and zero will also be rejected here
     if (isNaN(height) || height < 1) {
         displayError("That's not a valid height.");
@@ -53,7 +55,7 @@ formElem.onsubmit = function(event) {
     if (height > tooTall) {
         displayError("Are you cray? I can't build a pyramid that tall.");
         return;
-    }
+    }*/
 
 
     // TODO 2
@@ -61,17 +63,17 @@ formElem.onsubmit = function(event) {
     // draw the pyramid with the given height
     drawPyramid(height);
     
+    
 }
-
-/**
+/*
  * displayError
  *
  * Displays an error message on the text input, and colors it red
  */
-function displayError(message) {
+/*function displayError(message) {
     heightElem.className = "invalid-field";
     document.querySelector(".error-message").innerHTML = message;
-}
+}*/
 
 
 
@@ -80,24 +82,20 @@ function displayError(message) {
  *
  * Undisplays the error message and removes the red CSS style
  */
-function clearError(message) {
+/*function clearError(message) {
     heightElem.className = "";
     document.querySelector(".error-message").innerHTML = "";
-}
+}*/
 
 
 
 // TODO 1
 // hook up the button's click event to our determineHeightAndThenDrawPyramid function
-button = document.getElementById("draw-button");
-button.onclick = function() {
+var printButton = document.querySelector("button");
 
-// figure out the height the user typed
-heightStr = document.getElementById("height").value
+printButton.addEventListener("click", determineHeightAndThenDrawPyramid);
 
-// convert the string to an int
-height = parseInt(heightStr);
-}
+
 
 /**
  * drawPyramid
@@ -109,6 +107,7 @@ height = parseInt(heightStr);
      // TODO 4
      // before drawing, clear the old content
      document.getElementById("pyramid").innerHTML = "";
+     
 
      // for each row....
      for (var row = 0; row < height; row++) {
@@ -137,4 +136,4 @@ height = parseInt(heightStr);
         document.getElementById("pyramid").appendChild(rowElem);
     }
 }
-}
+
